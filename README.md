@@ -12,4 +12,4 @@ This is a telegram bot program that uses in my private telegram group. It has a 
 `docker-compose up --build`
 ### TODO
 #### Aldo
-    - [ ] Pull exchange rate data
+- [ ] Pull exchange rate data
