@@ -1,0 +1,4 @@
+[CONFIG]
+token =
+scheduled_at_in_hour = 19
+scheduled_at_in_minute = 20
