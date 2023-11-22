@@ -13,3 +13,4 @@ This is a telegram bot program that uses in my private telegram group. It has a 
 ### TODO
 #### Aldo
 - [ ] Pull exchange rate data
+- [ ] Service for Trip planning
