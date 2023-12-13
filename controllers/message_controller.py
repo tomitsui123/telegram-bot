@@ -10,7 +10,7 @@ from utils.logger import get_logger
 
 logger = get_logger()
 config = configparser.ConfigParser()
-config.read('./config.ini')
+config.read('../config.ini')
 
 
 async def message_handler(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
@@ -55,6 +55,7 @@ scheduler = AsyncIOScheduler(timezone="Hongkong")
 async def exchange_rate_sender(reply_text):
     msg = get_exchange_rate_msg()
     logger.info("sent exchange rate")
+
     await reply_text(text=msg)
 
 
@@ -70,8 +71,8 @@ async def _exchange_rate_scheduler(update: Update):
                           minute=minute,
                           args=[update.message.reply_text])
         # scheduler.add_job(exchange_rate_sender, "interval",
-        #                   seconds=6,
-        #                   args=[update])
+        #                   seconds=10,
+        #                   args=[update.message.reply_text])
         logger.info("[start] exchange rate scheduler")
         scheduler.start()
         is_scheduled = True
