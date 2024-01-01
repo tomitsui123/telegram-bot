@@ -3,6 +3,8 @@ services:
   telegram-bot:
     container_name: telegram-bot
     restart: unless-stopped
+    environment:
+      - ENV=production
     build:
       dockerfile: ./Dockerfile 
       context: .

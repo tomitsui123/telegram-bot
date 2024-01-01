@@ -5,6 +5,7 @@ import requests
 from telegram import Update
 from telegram.ext import CommandHandler, Application, ContextTypes
 
+from modules.translate_module import google_translate
 from modules.weather_service import get_weather_info_from_observatory, process_rain_graph, get_typhoon_info
 from utils.logger import get_logger
 
@@ -86,6 +87,14 @@ async def japan_trip_info_handler(update: Update, context: ContextTypes.DEFAULT_
     )
 
 
+async def translate_handler(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+    logger.info("translate handler")
+    text = context.args[0]
+    await update.message.reply_html(
+        rf"Translated: {google_translate(text)}",
+    )
+
+
 def get_command_handlers():
     handlers = {
         "polling": polling_handler,
@@ -95,6 +104,7 @@ def get_command_handlers():
         "on9": on9_handler,
         "exchange_rate": exchange_rate_handler,
         "japan_trip_info": japan_trip_info_handler,
+        "translate": translate_handler
     }
     res = []
     for (command, handler) in handlers.items():
