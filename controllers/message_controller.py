@@ -6,7 +6,6 @@ from telegram.ext import ContextTypes, Application, MessageHandler, filters
 from modules.currency_module import get_exchange_rate_msg
 from modules.meal_module import contains_meal_info
 from modules.nba_module import get_livestream_link, get_nba_score_table
-from modules.translate_module import is_foreign_language, google_translate
 from utils.logger import get_logger
 
 logger = get_logger()
