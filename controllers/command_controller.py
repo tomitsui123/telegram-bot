@@ -89,7 +89,7 @@ async def japan_trip_info_handler(update: Update, context: ContextTypes.DEFAULT_
 
 async def translate_handler(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     logger.info("translate handler")
-    text = context.args[0]
+    text = ' '.join(context.args)
     await update.message.reply_html(
         rf"Translated: {google_translate(text)}",
     )
